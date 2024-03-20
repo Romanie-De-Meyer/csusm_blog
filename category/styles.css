@@ -2,3 +2,24 @@
   margin-top: 70px;
   height: calc(100vh - 70px);
 }
+.category-buttons {
+  display: flex;
+  justify-content: center; /* Horizontally center the buttons */
+  align-items: center; /* Vertically center the buttons */
+  flex-wrap: wrap; /* Allow the buttons to wrap if they exceed the width of the container */
+}
+
+.category-buttons button {
+  margin: 10px; /* Add some space between buttons */
+}
+
+.introduction {
+  text-align: center; /* Center align text */
+  margin-bottom: 20px; /* Add some space between introduction and buttons */
+}
+
+.Title {
+  text-align: center;
+  margin-bottom: 20px;
+
+}
