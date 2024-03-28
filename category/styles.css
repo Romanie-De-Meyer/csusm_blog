@@ -44,3 +44,21 @@
 #category-select option {
   font-size: 18px;
 }
+
+button {
+  font-family: 'Cormorant Garamond', sans-serif; 
+  font-size: 24px; 
+  width: 150px;
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+}
+
+/*this is temporary for testing
+*purposes to make sure
+*the button works
+*/
+button:active {
+  background-color: green;
+}
+
