@@ -1,6 +1,8 @@
 .category-container {
   margin-top: 70px;
   height: calc(100vh - 70px);
+  text-align: center;
+  font-size: 60px; 
 }
 
 .home-container {
@@ -12,7 +14,7 @@
 .post-section {
   text-align: left;
   margin: 20px auto;
-  width: 40%; /* Adjust width as needed */
+  width: 40%;
 }
 
 .post-title {
@@ -22,4 +24,23 @@
 .read-more {
   display: block;
   text-align: center;
+}
+
+.category-container {
+  margin-top: 70px;
+  height: calc(100vh - 70px);
+  text-align: center;
+}
+
+/*dropdown list styling*/
+#category-select {
+  font-size: 24px; 
+  width: 300px; 
+  padding: 10px; 
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+#category-select option {
+  font-size: 18px;
 }
