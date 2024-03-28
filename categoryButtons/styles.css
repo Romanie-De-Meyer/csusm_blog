@@ -2,7 +2,6 @@
   margin-top: 70px;
   height: calc(100vh - 70px);
 }
-
 .category-buttons {
   display: flex;
   justify-content: center; /* Horizontally center the buttons */
