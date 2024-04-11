@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a New Blog Post</title>
+    <title>New Article Page</title>
 
     <!-- css styles -->
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="../../css/global.css" />
-    <link rel="stylesheet" href="../../css/font.css" />
+    <link rel="stylesheet" href="/public/css/font.css" />
+    <link rel="stylesheet" href="/public/css/global.css" />
+    <link rel="stylesheet" href="/public/css/new-article.css" />
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,18 +28,19 @@
           <a href="/" class="link">home</a>
         </li>
         <li class="link cormorant-garamond-regular">
-          <a href="/categoryButtons" class="link">category</a>
+          <a href="/categories" class="link">category</a>
         </li>
       </ul>
+      <!-- change when the user is logged -->
       <div class="button">
-        <a href="/posts/new/index.html">new posts</a>
+        <a href="/login/index.html">Login</a>
       </div>
     </nav>
 
     <div class="banner">
       <input type="file" accept="image/*" id="banner-upload" hidden />
       <label for="banner-upload" class="banner-upload-btn"
-        ><img src="../../public/upload.png" alt="upload banner"
+        ><img src="../..//public/upload.png" alt="upload banner"
       /></label>
     </div>
 
