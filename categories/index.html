@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Category Page</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Category Page</title>
 
-    <!-- css styles -->
-    <link rel="stylesheet" href="/public/css/font.css" />
-    <link rel="stylesheet" href="/public/css/global.css" />
-    <link rel="stylesheet" href="/public/css/categories.css" />
+  <!-- css styles -->
+  <link rel="stylesheet" href="/public/css/font.css" />
+  <link rel="stylesheet" href="/public/css/global.css" />
+  <link rel="stylesheet" href="/public/css/categories.css" />
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <p class="logo cormorant-garamond-bold">
-        Csusm<span class="cormorant-garamond-regular">Blog</span>
-      </p>
-      <ul class="links-container">
-        <li class="link cormorant-garamond-regular">
-          <a href="/" class="link">home</a>
-        </li>
-        <li class="link cormorant-garamond-regular">
-          <a href="/categories" class="link">category</a>
-        </li>
-      </ul>
-      <!-- change when the user is logged -->
-      <div class="button">
-        <a href="/login/index.html">Login</a>
-      </div>
-    </nav>
-    <section class="category-container">
-      <div class="Title">
-        <h1>Categories</h1>
-      </div>
-      <div class="introduction">
-        <p>These are all of the Catagories that we offer :</p>
-      </div>
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+  />
+</head>
+<body>
+<nav class="navbar">
+  <p class="logo cormorant-garamond-bold">
+    Csusm<span class="cormorant-garamond-regular">Blog</span>
+  </p>
+  <ul class="links-container">
+    <li class="link cormorant-garamond-regular">
+      <a href="/" class="link">home</a>
+    </li>
+    <li class="link cormorant-garamond-regular">
+      <a href="/categories" class="link">category</a>
+    </li>
+  </ul>
+  <!-- change when the user is logged -->
+  <div class="button">
+    <a href="/login/index.html">Login</a>
+  </div>
+</nav>
+<section class="category-container">
+  <div class="Title">
+    <h1>Categories</h1>
+  </div>
+  <div class="introduction">
+    <p>These are all of the Categories that we offer:</p>
+  </div>
 
-      <div class="category-buttons">
-        <button onclick="window.location.href='/1'">Category 1</button>
-        <button onclick="window.location.href='/2'">Category 2</button>
-        <button onclick="window.location.href='/3'">Category 3</button>
-        <button onclick="window.location.href='/4'">Category 4</button>
-        <button onclick="window.location.href='/5'">Category 5</button>
-        <button onclick="window.location.href='/6'">Category 6</button>
-      </div>
-    </section>
-  </body>
+  <div class="category-descriptions">
+    <div class="category-description">
+      <h3>Academic Success</h3>
+      <p>Tips for studying, time management, note-taking strategies, dealing with exams, etc.</p>
+    </div>
+    <div class="category-description">
+      <h3>Health and Wellness</h3>
+      <p>Topics such as mental health, exercise, nutrition, stress management, and coping with the demands of college life.</p>
+    </div>
+    <div class="category-description">
+      <h3>Student Life</h3>
+      <p>Posts about dorm life, campus events, making friends, managing finances, and navigating campus resources.</p>
+    </div>
+    <div class="category-description">
+      <h3>Hobbies and Interests</h3>
+      <p>Content related to hobbies, passions, sports, arts, entertainment, and leisure activities.</p>
+    </div>
+    <div class="category-description">
+      <h3>Career Planning</h3>
+      <p>Articles on internships, resume writing, job interviews, networking, and career exploration.</p>
+    </div>
+    <div class="category-description">
+      <h3>Misc</h3>
+      <p>Other topics that don't fit into specific categories.</p>
+    </div>
+  </div>
+
+  <div class="category-buttons">
+    <button onclick="window.location.href='/1'">Academic Success</button>
+    <button onclick="window.location.href='/2'">Health and Wellness</button>
+    <button onclick="window.location.href='/3'">Student Life</button>
+    <button onclick="window.location.href='/4'">Hobbies and Interests</button>
+    <button onclick="window.location.href='/5'">Career Planning</button>
+    <button onclick="window.location.href='/6'">Misc</button>
+  </div>
+</section>
+</body>
 </html>
