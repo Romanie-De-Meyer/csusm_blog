@@ -40,29 +40,38 @@
     <div class="banner">
       <input type="file" accept="image/*" id="banner-upload" hidden />
       <label for="banner-upload" class="banner-upload-btn"
-        ><img src="../..//public/upload.png" alt="upload banner"
+        ><img src="/public/img/upload.png" alt="upload banner"
       /></label>
     </div>
 
     <div class="blog">
-      <textarea>
+      <textarea
         type="text"
         class="title cormorant-garamond-semibold"
         placeholder="Blog title..."
-      </textarea>
-      <textarea>
+      ></textarea>
+      <textarea
         type="text"
         class="article cormorant-garamond-semibold"
         placeholder="Start writing here..."
-      </textarea>
+      ></textarea>
     </div>
-
     <div class="blog-options">
-      <button class="btn dark cormorant-garamond-medium">publish</button>
+      <button
+        id="publish-button"
+        type="submit"
+        class="btn dark cormorant-garamond-medium"
+      >
+        publish
+      </button>
       <input type="file" accept="image/*" id="image-upload" hidden />
-      <label for="image-upload" class="btn grey cormorant-garamond-medium"
+      <label
+        id="image-upload"
+        for="image-upload"
+        class="btn grey cormorant-garamond-medium"
         >Upload Image</label
       >
     </div>
+    <script src="/public/js/new-article.js"></script>
   </body>
 </html>
