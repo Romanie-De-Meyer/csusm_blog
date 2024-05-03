@@ -1,0 +1,9 @@
+https://cis444.cs.csusm.edu/team_2/
+https://cis444.cs.csusm.edu/team_2/register
+https://cis444.cs.csusm.edu/team_2/login
+https://cis444.cs.csusm.edu/team_2/categories
+https://cis444.cs.csusm.edu/team_2/profile
+https://cis444.cs.csusm.edu/team_2/profile/edit
+https://cis444.cs.csusm.edu/team_2/profile/article
+https://cis444.cs.csusm.edu/team_2/profile/article/new
+https://cis444.cs.csusm.edu/team_2/profile/article/edit
