@@ -1,43 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+<!-- Include Head -->
+<?php require "./components/head.php"; ?>
 
-    <!-- css styles -->
-    <link rel="stylesheet" href="public/css/font.css" />
-    <link rel="stylesheet" href="public/css/global.css" />
-    <link rel="stylesheet" href="public/css/home.css" />
+<title>Home Page</title>
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <p class="logo cormorant-garamond-bold">
-        Csusm<span class="cormorant-garamond-regular">Blog</span>
-      </p>
-      <ul class="links-container">
-        <li class="link cormorant-garamond-regular">
-          <a href="/" class="link">home</a>
-        </li>
-        <li class="link cormorant-garamond-regular">
-          <a href="/categories.html" class="link">category</a>
-        </li>
-      </ul>
-      <!-- change when the user is logged -->
-      <div class="button">
-        <a href="/login.html">Login</a>
-      </div>
-    </nav>
+<!-- Custom CSS -->
+<link rel="stylesheet" href="public/css/home.css" />
+
+</head>
+
+<body>
+  <!-- Include Header -->
+  <?php include "./components/header.php" ?>
+
+  <main>
     <section class="home-container">
-      <h2 class="title">Welcome to the CSUSM Blog</h2>
+      <?php if ($loggedin): ?>
+        <h2 class="title">Welcome to the CSUSM Blog, <?= $_SESSION["username"]; ?></h2>
+      <?php else: ?>
+        <h2 class="title">Welcome to the CSUSM Blog</h2>
+      <?php endif; ?>
+      <!-- <h2 class="title">Welcome to the CSUSM Blog</h2> -->
       <p class="description">
         Discover various articles from your fellow students at CSUSM
       </p>
@@ -72,5 +54,10 @@
         <a href="#" class="read-more">Read More</a>
       </section>
     </section>
-  </body>
+  </main>
+
+  <!-- Footer -->
+  <?php include "./components/footer.php" ?>
+</body>
+
 </html>

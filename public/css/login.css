@@ -1,56 +1,40 @@
 section {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  display: flex;
+  justify-content: center;
 }
-  
-form {
-    margin: 0 auto;
-    max-width: 300px;
-    padding: 30px;
+
+.container {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 2px solid #000000;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #000000;
+  box-sizing: border-box;
 }
 
-button {
-    margin-top: 0px;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
+#password {
+  margin-bottom: 24px;
 }
 
-button:hover {
-    background-color: #00000099;
-}
-
-input[type="submit"] {
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
-    cursor: pointer;
-}
-  
-input[type="submit"]:hover {
-    background-color: #00000099;
-}
-  
-input[type="submit"]:focus {
-    outline: none;
+#register {
+  width: 100%;
 }
