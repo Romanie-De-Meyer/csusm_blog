@@ -6,8 +6,9 @@
     <title>Category Page</title>
 
     <!-- css styles -->
-
-    <link rel="stylesheet" href="./public/css/categories.html.css" />
+    <link rel="stylesheet" href="public/css/font.css" />
+    <link rel="stylesheet" href="public/css/global.css" />
+    <link rel="stylesheet" href="public/css/categories.css" />
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -86,15 +87,20 @@
       </div>
 
       <div class="category-buttons">
-        <button onclick="window.location.href='/1'">Academic Success</button>
-        <button onclick="window.location.href='/2'">Health and Wellness</button>
-        <button onclick="window.location.href='/3'">Student Life</button>
-        <button onclick="window.location.href='/4'">
-          Hobbies and Interests
-        </button>
-        <button onclick="window.location.href='/5'">Career Planning</button>
-        <button onclick="window.location.href='/6'">Misc</button>
+        <button onclick="populateAcademic()">Academic Success</button>
+        <button onclick="populateHealthwell()">Health and Wellness</button>
+        <button onclick="populateStudent()">Student Life</button>
+        <button onclick="populateHobbies()">Hobbies and Interests</button>
+        <button onclick="populateCareer()">Career Planning</button>
+        <button onclick="populateMisc()">Misc</button>
       </div>
+      <div id="miscArticles"></div>
+      <div id="academicArticles"></div>
+      <div id="careerArticles"></div>
+      <div id="healthwellArticles"></div>
+      <div id="hobbiesArticles"></div>
+      <div id="studentArticles"></div>
     </section>
+    <script src="scripts.js"></script>
   </body>
 </html>
