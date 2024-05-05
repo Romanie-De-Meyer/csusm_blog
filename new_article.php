@@ -1,5 +1,4 @@
-<?php include ('config.php'); ?>
-
+<?php include ('includes/article.php'); ?>
 <?php include ('includes/head_section.php'); ?>
 
 <title>New Article Page</title>
@@ -11,27 +10,33 @@
   <?php include (ROOT_PATH . '/includes/navbar.php'); ?>
   <!-- // Navbar -->
 
-  <main style="overflow: hidden">
-    <div class="banner">
-      <input type="file" accept="image/*" id="banner-upload" hidden />
-      <label for="banner-upload" class="banner-upload-btn"><img src="static/images/upload.png"
-          alt="upload banner" /></label>
-    </div>
+  <main style="height:fit-content;">
+    <form method="post" enctype="multipart/form-data" action="new_article.php">
+      <div class="banner_article">
+        <input type="file" name="featured_image">
+      </div>
 
-    <div class="blog">
-      <textarea type="text" class="title cormorant-garamond-semibold" placeholder="Blog title...">
+      <?php if ($isEditingArticle === true): ?>
+        <input type="hidden" name="article_id" value="<?php echo $article_id; ?>">
+      <?php endif ?>
 
-      </textarea>
-      <textarea type="text" class="article cormorant-garamond-semibold" placeholder="Start writing here...">
+      <div class="blog">
+        <textarea type="text" name="title" id="title" class="title cormorant-garamond-semibold"
+          placeholder="Blog title..."><?php echo $title; ?></textarea>
+        <textarea name="body" id="body" cols="30" rows="10" class="article cormorant-garamond-semibold"
+          placeholder="Start writing here..."><?php echo $body; ?></textarea>
+      </div>
 
-      </textarea>
-    </div>
 
-    <div class="blog-options">
-      <button class="btn dark cormorant-garamond-medium">publish</button>
-      <input type="file" accept="image/*" id="image-upload" hidden />
-      <label for="image-upload" class="btn grey cormorant-garamond-medium">Upload Image</label>
-    </div>
+      <div class="blog-options">
+        <?php if ($isEditingArticle === true): ?>
+          <button class="cormorant-garamond-medium" type="submit" class="button" name="update_article">UPDATE</button>
+        <?php else: ?>
+          <button class="cormorant-garamond-medium" type="submit" class="button" name="create_article">Save
+            Article</button>
+        <?php endif ?>
+      </div>
+    </form>
   </main>
 
   <!-- // container -->
