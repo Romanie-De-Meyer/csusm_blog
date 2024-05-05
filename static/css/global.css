@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  font-family: "Cormorant Garamond", serif;
+}
+
+main {
+  height: calc(100vh - 70px - 60px);
+  padding: 20px 32px;
+}
+
+hr {
+  margin: 10px 0px;
+  opacity: 0.25;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  width: 80%;
+  margin: 20px auto 0px;
+  padding: 20px 0px;
+}
+
+button {
+  font-family: "Cormorant Garamond", serif;
+  margin-top: 0px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #00000099;
+}
+
+.button {
+  display: flex;
+  width: fit-content;
+  background-color: #000000;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #00000099;
+}
+
+.button a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.banner {
+  margin: 32px;
+  height: calc(80vh - 70px - 64px);
+  color: black;
+  background-image: url("../images/hero.avif");
+  background-size: 100% 100%;
+}
+
+.welcome_msg {
+  display: flex;
+  height: inherit;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome_text {
+  font-size: 64px;
+}
+
+.container_auth {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
