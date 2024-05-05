@@ -1,63 +1,49 @@
-<!-- Include Head -->
-<?php require "./components/head.php"; ?>
+<!-- The first include should be config.php -->
+<?php require_once ('config.php') ?>
 
+<?php require_once (ROOT_PATH . '/includes/head_section.php') ?>
 <title>Home Page</title>
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="public/css/home.css" />
-
+<link rel="stylesheet" href="static/css/home.css" />
 </head>
 
 <body>
-  <!-- Include Header -->
-  <?php include "./components/header.php" ?>
+  <!-- navbar -->
+  <?php include (ROOT_PATH . '/includes/navbar.php') ?>
+  <!-- // navbar -->
+
+
+  <!-- banner -->
+  <?php include (ROOT_PATH . '/includes/banner.php') ?>
+  <!-- // banner -->
 
   <main>
-    <section class="home-container">
-      <?php if ($loggedin): ?>
-        <h2 class="title">Welcome to the CSUSM Blog, <?= $_SESSION["username"]; ?></h2>
-      <?php else: ?>
-        <h2 class="title">Welcome to the CSUSM Blog</h2>
-      <?php endif; ?>
-      <!-- <h2 class="title">Welcome to the CSUSM Blog</h2> -->
-      <p class="description">
-        Discover various articles from your fellow students at CSUSM
-      </p>
-      <section class="post-section">
-        <h3 class="post-title">Title Here</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit
-          arcu eget turpis varius, eget commodo neque vulputate. Duis eu massa
-          sed nulla lacinia consequat.
-        </p>
-        <p>
-          Donec finibus ex a arcu pharetra, nec suscipit tortor feugiat. Vivamus
-          commodo ligula nec nisi dignissim, ac dapibus orci fermentum. Integer
-          malesuada urna id diam suscipit lacinia.
-        </p>
-        <!-- change the href when we will have the articleId -->
-        <a href="#" class="read-more">Read More</a>
-      </section>
-      <section class="post-section">
-        <h3 class="post-title">Title Here</h3>
-        <p>
-          Nullam non placerat arcu, vel malesuada ligula. Proin nec purus a
-          magna varius accumsan et in turpis. Fusce vitae lacus eget ligula
-          posuere bibendum.
-        </p>
-        <p>
-          Nam ullamcorper, justo a interdum dictum, ligula dui placerat urna, et
-          maximus arcu ligula nec libero. Phasellus non enim nec ex congue
-          consequat. Pellentesque et tristique urna.
-        </p>
-        <!-- change the href when we will have the articleId -->
-        <a href="#" class="read-more">Read More</a>
-      </section>
-    </section>
+    <div class="content">
+      <h2 class="content-title">Recent Articles</h2>
+      <hr>
+
+      <div class="post">
+        <img
+          src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          class="post_image" alt="">
+        <!-- Added this if statement... -->
+        <div>
+          <!-- // Add category -->
+          <!-- // change href -->
+          <a href="#">
+            <div class="post_info">
+              <h3> <!-- // Add Title --></h3>
+              <div class="info">
+                <!-- // Add Date -->
+                <span class="read_more">Read more...</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <!-- Footer -->
-  <?php include "./components/footer.php" ?>
-</body>
-
-</html>
+  <!-- footer -->
+  <?php include (ROOT_PATH . '/includes/footer.php') ?>
+  <!-- // footer -->
