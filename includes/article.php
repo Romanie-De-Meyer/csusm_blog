@@ -10,7 +10,6 @@ $title = "";
 $article_slug = "";
 $body = "";
 $featured_image = "";
-$article_topic = "";
 
 
 if (isset($_POST['create_article'])) {
@@ -77,12 +76,12 @@ function getArticleAuthorById($user_id)
 
 function createArticle($request_values)
 {
-    global $conn, $user_id, $errors, $title, $featured_image, $topic_id, $body, $published;
+    global $conn, $user_id, $errors, $title, $featured_image, $category, $body, $published;
     $title = esc($request_values['title']);
     $body = htmlentities(esc($request_values['body']));
-    // if (isset($request_values['topic_id'])) {
-    //     $topic_id = esc($request_values['topic_id']);
-    // }
+    if (isset($request_values['category'])) {
+        $category = esc($request_values['category']);
+    }
     $published = 1;
     // create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
     $article_slug = makeSlug($title);
@@ -93,9 +92,9 @@ function createArticle($request_values)
     if (empty($body)) {
         array_push($errors, "Article body is required");
     }
-    // if (empty($topic_id)) {
-    //     array_push($errors, "Article topic is required");
-    // }
+    if (empty($category)) {
+        array_push($errors, "Article category is required");
+    }
     // Get image name
     $featured_image = $_FILES['featured_image']['name'];
     if (empty($featured_image)) {
@@ -104,7 +103,6 @@ function createArticle($request_values)
     // image file directory
     $target = ROOT_PATH . "/static/images/" . $featured_image;
 
-    var_dump($_FILES['featured_image']['tmp_name'], $target);
     if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
         array_push($errors, "Failed to upload image. Please check file settings for your server");
     }
@@ -121,6 +119,9 @@ function createArticle($request_values)
     if (count($errors) == 0) {
         $query = "INSERT INTO articles (user_id, title, slug, likes, image, body, published, created_at, updated_at) VALUES('$user_id', '$title', '$article_slug', 0, '$featured_image', '$body', $published, now(), now())";
         if (mysqli_query($conn, $query)) {
+            $inserted_article_id = mysqli_insert_id($conn);
+            // create relationship between article and category TODO
+
             $_SESSION['message'] = "Article created successfully";
             header('location: profile.php');
             exit(0);
@@ -130,15 +131,14 @@ function createArticle($request_values)
 
 function updateArticle($request_values)
 {
-    global $conn, $errors, $article_id, $title, $featured_image, $topic_id, $body, $published;
+    global $conn, $errors, $article_id, $title, $featured_image, $category, $body, $published;
 
     $title = esc($request_values['title']);
     $body = esc($request_values['body']);
     $article_id = esc($request_values['article_id']);
-    if (isset($request_values['topic_id'])) {
-        $topic_id = esc($request_values['topic_id']);
+    if (isset($request_values['category'])) {
+        $category = esc($request_values['category']);
     }
-    // create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
     $article_slug = makeSlug($title);
 
     if (empty($title)) {
@@ -158,16 +158,15 @@ function updateArticle($request_values)
         }
     }
 
-    // register topic if there are no errors in the form
+    // register category if there are no errors in the form
     if (count($errors) == 0) {
         $query = "UPDATE articles SET title='$title', slug='$article_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$article_id";
-        // attach topic to article on article_topic table
+        // attach category to article on article_category table
         if (mysqli_query($conn, $query)) { // if article created successfully
-            if (isset($topic_id)) {
+            if (isset($category)) {
                 $inserted_article_id = mysqli_insert_id($conn);
-                // create relationship between article and topic
-                $sql = "INSERT INTO article_topic (article_id, topic_id) VALUES($inserted_article_id, $topic_id)";
-                mysqli_query($conn, $sql);
+                // create relationship between article and category TODO
+
                 $_SESSION['message'] = "Article created successfully";
                 header('location: articles.php');
                 exit(0);
