@@ -18,8 +18,7 @@ if ($conn->connect_error) {
 }
 
 try {
-    // Query to retrieve articles with category ID 2 from the 'articles' table
-    $sql = "SELECT title, body FROM articles WHERE category = 4";
+    $sql = "SELECT title, body, created_at FROM articles WHERE category = 4";
     $result = $conn->query($sql);
 
     if ($result) {
