@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  z-index: 9;
+  padding-right: 50px;
+  padding-left: 50px;
+  background: #fff;
+  border-bottom: solid 0.5px #00000013;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.links-container {
+  height: 100%;
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #00000099;
+  height: 100%;
+  font-size: 16px;
+}
+
+.link:hover {
+  color: #000;
+  border-bottom: solid 0.5px #000000;
+}

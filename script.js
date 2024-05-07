@@ -23,12 +23,14 @@ function populateMisc() {
   fetch("php/miscAJAX.php")
     .then((response) => response.json())
     .then((data) => {
+
       // Log the data to understand its structure
       console.log("Data received:", data);
 
       // Process the data and populate the miscArticles div
       const miscArticlesDiv = document.getElementById("miscArticles");
       miscArticlesDiv.innerHTML = ""; // Clear previous content
+
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
@@ -48,6 +50,7 @@ function populateMisc() {
       } else {
         console.error("No articles found in the response or invalid data structure.");
       }
+
     })
     .catch((error) =>
       console.error("Error fetching miscellaneous articles:", error)
@@ -74,8 +77,10 @@ function populateAcademic() {
   fetch("php/academicAJAX.php")
     .then((response) => response.json())
     .then((data) => {
+
       // Log the data to understand its structure
       console.log("Data received:", data);
+
 
       // Process the data and populate the academicArticles div
       const academicArticlesDiv = document.getElementById("academicArticles");
@@ -99,6 +104,7 @@ function populateAcademic() {
       } else {
         console.error("No articles found in the response or invalid data structure.");
       }
+
     })
     .catch((error) =>
       console.error("Error fetching academic articles:", error)
@@ -128,6 +134,7 @@ function populateCareer() {
       // Log the data to understand its structure
       console.log("Data received:", data);
 
+
       // Process the data and populate the careerArticles div
       const careerArticlesDiv = document.getElementById("careerArticles");
       careerArticlesDiv.innerHTML = ""; // Clear previous content
@@ -154,6 +161,7 @@ function populateCareer() {
     .catch((error) =>
       console.error("Error fetching career articles:", error)
     );
+
 }
 function populateHealthwell() {
   // Clear the content of the misc articles container
@@ -201,6 +209,7 @@ function populateHealthwell() {
       } else {
         console.error("No articles found in the response or invalid data structure.");
       }
+
     })
     .catch((error) =>
       console.error("Error fetching healthwell articles:", error)
@@ -224,6 +233,7 @@ function populateHobbies() {
   const studentArticlesDiv = document.getElementById("studentArticles");
   studentArticlesDiv.innerHTML = "";
 
+
 // Make an AJAX request to fetch the hobbies articles from the server
   fetch("php/hobbiesAJAX.php")
     .then((response) => response.json())
@@ -234,6 +244,7 @@ function populateHobbies() {
       // Process the data and populate the hobbiesArticles div
       const hobbiesArticlesDiv = document.getElementById("hobbiesArticles");
       hobbiesArticlesDiv.innerHTML = ""; // Clear previous content
+
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
@@ -274,6 +285,7 @@ function populateStudent() {
   // Clear the content of the hobbies articles container
   const hobbiesArticlesDiv = document.getElementById("hobbiesArticles");
   hobbiesArticlesDiv.innerHTML = "";
+
 
 // Make an AJAX request to fetch the student articles from the server
   fetch("php/studentAJAX.php")
