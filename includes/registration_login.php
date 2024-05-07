@@ -28,8 +28,7 @@ if (isset($_POST['reg_user'])) {
 
   // Ensure that no user is registered twice.
   // the email and usernames should be unique
-  $user_check_query = "SELECT * FROM users WHERE username='$username'
-                                                OR email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
 
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
@@ -55,10 +54,18 @@ if (isset($_POST['reg_user'])) {
     // put logged in user into session array
     $_SESSION['user'] = getUserById($reg_user_id);
 
-    $_SESSION['message'] = "You are now logged in";
-    // redirect to public area
-    header('location: index.php');
-    exit(0);
+    // if user is admin, redirect to admin area
+    if (in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to admin area
+      header('location: ' . BASE_URL . 'admin/dashboard.php');
+      exit(0);
+    } else {
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to public area
+      header('location: index.php');
+      exit(0);
+    }
   }
 }
 
@@ -85,10 +92,18 @@ if (isset($_POST['login_btn'])) {
       // put logged in user into session array
       $_SESSION['user'] = getUserById($reg_user_id);
 
-      $_SESSION['message'] = "You are now logged in";
-      // redirect to public area
-      header('location: index.php');
-      exit(0);
+      // if user is admin, redirect to admin area
+      if (in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to admin area
+        header('location: ' . BASE_URL . 'admin/dashboard.php');
+        exit(0);
+      } else {
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to public area
+        header('location: index.php');
+        exit(0);
+      }
 
     } else {
       array_push($errors, 'Wrong credentials');
