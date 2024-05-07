@@ -18,6 +18,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
+  `category` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -34,8 +35,8 @@ CREATE TABLE `articles` (
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `user_id`, `title`, `slug`, `views`, `likes`, `image`, `body`, `published`, `created_at`, `updated_at`) VALUES
-(1, 1, 'The Power of Gratitude: Transforming Perspectives', 'the-power-of-gratitude:-transforming-perspectives', 26, 12, 'banner.jpg', 'Read every day', 1, '2018-11-22 05:59:52', '2018-02-01 13:44:31');
+INSERT INTO `articles` (`id`, `category`, `user_id`, `title`, `slug`, `views`, `likes`, `image`, `body`, `published`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'The Power of Gratitude: Transforming Perspectives', 'the-power-of-gratitude:-transforming-perspectives', 26, 12, 'banner.jpg', 'Read every day', 1, '2018-11-22 05:59:52', '2018-02-01 13:44:31');
 
 --
 -- Table structure for table `users`
@@ -64,7 +65,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `role`, `password`, `created_at`
 -- Indexes for table `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id`, `category`),
   ADD UNIQUE KEY `slug` (`slug`),
   ADD KEY `user_id` (`user_id`);
 

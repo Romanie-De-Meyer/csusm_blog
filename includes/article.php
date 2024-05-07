@@ -51,13 +51,14 @@ function getUserArticles()
 
 function editArticle($article_id)
 {
-    global $conn, $title, $article_slug, $body, $published, $isEditingArticle, $article_id;
+    global $conn, $title, $category, $article_slug, $body, $published, $isEditingArticle, $article_id;
     $sql = "SELECT * FROM articles WHERE id=$article_id LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $article = mysqli_fetch_assoc($result);
     // set form values on the form to be updated
     $title = $article['title'];
     $body = $article['body'];
+    $category = $article['category'];
     $published = $article['published'];
 }
 
@@ -117,11 +118,8 @@ function createArticle($request_values)
     }
     // create article if there are no errors in the form
     if (count($errors) == 0) {
-        $query = "INSERT INTO articles (user_id, title, slug, likes, image, body, published, created_at, updated_at) VALUES('$user_id', '$title', '$article_slug', 0, '$featured_image', '$body', $published, now(), now())";
+        $query = "INSERT INTO articles (category, user_id, title, slug, likes, image, body, published, created_at, updated_at) VALUES('$category', '$user_id', '$title', '$article_slug', 0, '$featured_image', '$body', $published, now(), now())";
         if (mysqli_query($conn, $query)) {
-            $inserted_article_id = mysqli_insert_id($conn);
-            // create relationship between article and category TODO
-
             $_SESSION['message'] = "Article created successfully";
             header('location: profile.php');
             exit(0);
@@ -136,9 +134,7 @@ function updateArticle($request_values)
     $title = esc($request_values['title']);
     $body = esc($request_values['body']);
     $article_id = esc($request_values['article_id']);
-    if (isset($request_values['category'])) {
-        $category = esc($request_values['category']);
-    }
+    $category = esc($request_values['category']);
     $article_slug = makeSlug($title);
 
     if (empty($title)) {
@@ -152,29 +148,20 @@ function updateArticle($request_values)
         // Get image name
         $featured_image = $_FILES['featured_image']['name'];
         // image file directory
-        $target = "../static/images/" . basename($featured_image);
+        $target = ROOT_PATH . "/static/images/" . $featured_image;
+
         if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
             array_push($errors, "Failed to upload image. Please check file settings for your server");
         }
     }
 
-    // register category if there are no errors in the form
     if (count($errors) == 0) {
-        $query = "UPDATE articles SET title='$title', slug='$article_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$article_id";
-        // attach category to article on article_category table
+        $query = "UPDATE articles SET category='$category', title='$title', slug='$article_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$article_id";
         if (mysqli_query($conn, $query)) { // if article created successfully
-            if (isset($category)) {
-                $inserted_article_id = mysqli_insert_id($conn);
-                // create relationship between article and category TODO
-
-                $_SESSION['message'] = "Article created successfully";
-                header('location: articles.php');
-                exit(0);
-            }
+            $_SESSION['message'] = "Article updated successfully";
+            header('location: profile.php');
+            exit(0);
         }
-        $_SESSION['message'] = "Article updated successfully";
-        header('location: articles.php');
-        exit(0);
     }
 }
 

@@ -20,7 +20,7 @@
         </svg>
         <span style="font-size: 24px;">Manage users</span>
       </a>
-      <a href="posts.php"
+      <a href="articles.php"
         style="display: flex; flex-direction: column; border: 1px solid black; padding: 32px; align-items: center; border-radius: 8px; color: grey">
         <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24">
           <g fill="none" stroke="currentColor" stroke-width="1.5">

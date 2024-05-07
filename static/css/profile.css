@@ -19,6 +19,7 @@ article {
   gap: 32px;
   width: 800px;
   min-width: 500px;
+  position: relative;
 }
 
 .text_container {
@@ -26,4 +27,19 @@ article {
   justify-content: space-between;
   width: 100%;
   align-items: end;
+}
+
+.category-btn {
+  margin-top: 0px;
+  padding: 3px 8px;
+  color: #374447;
+  background: white;
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #374447;
+  box-shadow: 3px 2px 2px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 3;
 }

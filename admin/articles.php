@@ -5,6 +5,17 @@
 
 <!-- Get all admin articles from DB -->
 <?php $articles = getAllArticles(); ?>
+
+<?php
+$categories = array(
+  1 => 'academic',
+  2 => 'career',
+  3 => 'health and wellness',
+  4 => 'hobbies',
+  5 => 'misc',
+  6 => 'student'
+);
+?>
 <title>Admin | Manage Articles</title>
 </head>
 
@@ -27,6 +38,7 @@
             <th>No.</th>
             <th>Title</th>
             <th>Author</th>
+            <th>Category</th>
             <th>Views</th>
             <!-- Only Admin can publish/unpublish article -->
             <?php if ($_SESSION['user']['role'] == "Admin"): ?>
@@ -42,6 +54,9 @@
                 <td><?php echo $article['title']; ?></td>
                 <td>
                   <?php echo $article['author']; ?>
+                </td>
+                <td>
+                  <?php echo $categories[$article['category']]; ?>
                 </td>
                 <td><?php echo $article['views']; ?></td>
 

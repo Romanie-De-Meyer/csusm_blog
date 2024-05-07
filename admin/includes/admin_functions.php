@@ -123,11 +123,15 @@ function updateAdmin($request_values)
   // set edit state to false
   $isEditingUser = false;
 
-
   $username = esc($request_values['username']);
   $email = esc($request_values['email']);
   $password = esc($request_values['password']);
   $passwordConfirmation = esc($request_values['passwordConfirmation']);
+
+  if ($password != $passwordConfirmation) {
+    array_push($errors, "The two passwords do not match");
+  }
+
   if (isset($request_values['role'])) {
     $role = $request_values['role'];
   }
@@ -148,6 +152,12 @@ function updateAdmin($request_values)
 function deleteAdmin($admin_id)
 {
   global $conn;
+
+  $sql = "DELETE FROM articles WHERE user_id = $admin_id";
+  if (mysqli_query($conn, $sql)) {
+    $_SESSION['message'] = "Articles successfully deleted";
+  }
+
   $sql = "DELETE FROM users WHERE id=$admin_id";
   if (mysqli_query($conn, $sql)) {
     $_SESSION['message'] = "User successfully deleted";
@@ -162,7 +172,7 @@ function deleteAdmin($admin_id)
 function getAdminUsers()
 {
   global $conn, $roles;
-  $sql = "SELECT * FROM users WHERE role IS NOT NULL";
+  $sql = "SELECT * FROM users";
   $result = mysqli_query($conn, $sql);
   $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

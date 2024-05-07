@@ -2,6 +2,18 @@
 <?php include ('includes/head_section.php'); ?>
 
 <?php $articles = getUserArticles(); ?>
+
+<?php
+$categories = array(
+  1 => 'academic',
+  2 => 'career',
+  3 => 'health and wellness',
+  4 => 'hobbies',
+  5 => 'misc',
+  6 => 'student'
+);
+?>
+
 <title>Profile Page</title>
 <link rel="stylesheet" href="static/css/profile.css" />
 </head>
@@ -39,7 +51,10 @@
         <div class="articles_container">
           <?php foreach ($articles as $article): ?>
             <article>
-              <img src="<?php echo BASE_URL . '/static/images/' . $article['image']; ?>" width="200px" alt="article" />
+              <img src="<?php echo BASE_URL . 'static/images/' . $article['image']; ?>" width="200px" alt="article" />
+              <p class="category-btn">
+                <?php echo $categories[$article['category']]; ?>
+              </p>
               <div style="width: 100%;">
                 <div style="display: flex; width: 100%; justify-content: space-between">
                   <h2 style="padding-bottom: 8px"><?php echo $article['title'] ?></h2>

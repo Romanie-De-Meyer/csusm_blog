@@ -4,8 +4,16 @@
 <?php include (ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
 <?php
-$categories = ['miscArticles', 'academicArticles', 'careerArticles', 'healthwellArticles', 'hobbiesArticles', 'studentArticles'];
+$categories = array(
+  1 => 'academic',
+  2 => 'career',
+  3 => 'health and wellness',
+  4 => 'hobbies',
+  5 => 'misc',
+  6 => 'student'
+);
 ?>
+
 <title>Admin | Create Article</title>
 </head>
 
@@ -20,8 +28,7 @@ $categories = ['miscArticles', 'academicArticles', 'careerArticles', 'healthwell
     <!-- Middle form - to create and edit  -->
     <div class="action create-article-div">
       <h1 class="page-title">Create/Edit Article</h1>
-      <form method="article" enctype="multipart/form-data"
-        action="<?php echo BASE_URL . 'admin/create_article.php'; ?>">
+      <form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_article.php'; ?>">
         <!-- validation errors for the form -->
         <?php include (ROOT_PATH . '/includes/errors.php') ?>
 
@@ -37,8 +44,8 @@ $categories = ['miscArticles', 'academicArticles', 'careerArticles', 'healthwell
 
         <select name="category">
           <option value="" selected disabled>Choose category</option>
-          <?php foreach ($categories as $key => $category): ?>
-            <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+          <?php foreach ($categories as $number => $category): ?>
+            <option value="<?php echo $number; ?>"><?php echo $category; ?></option>
           <?php endforeach ?>
         </select>
 
