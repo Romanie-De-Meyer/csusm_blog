@@ -78,7 +78,7 @@
     <div id="studentArticles"></div>
 
   </main>
-  <script src="scripts.js"></script>
+  <script src="script.js"></script>
 
   <!-- Footer -->
   <?php include (ROOT_PATH . '/includes/footer.php'); ?>
