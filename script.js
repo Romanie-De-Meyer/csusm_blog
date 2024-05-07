@@ -34,20 +34,26 @@ function populateMisc() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          miscArticlesDiv.appendChild(articleTitle);
-          miscArticlesDiv.appendChild(articleContent);
-          miscArticlesDiv.appendChild(document.createElement("br"));
-          miscArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
 
@@ -88,20 +94,26 @@ function populateAcademic() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          academicArticlesDiv.appendChild(articleTitle);
-          academicArticlesDiv.appendChild(articleContent);
-          academicArticlesDiv.appendChild(document.createElement("br"));
-          academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
 
@@ -141,20 +153,26 @@ function populateCareer() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          careerArticlesDiv.appendChild(articleTitle);
-          careerArticlesDiv.appendChild(articleContent);
-          careerArticlesDiv.appendChild(document.createElement("br"));
-          careerArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
     })
@@ -193,20 +211,26 @@ function populateHealthwell() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          healthwellArticlesDiv.appendChild(articleTitle);
-          healthwellArticlesDiv.appendChild(articleContent);
-          healthwellArticlesDiv.appendChild(document.createElement("br"));
-          healthwellArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
 
@@ -248,20 +272,26 @@ function populateHobbies() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          hobbiesArticlesDiv.appendChild(articleTitle);
-          hobbiesArticlesDiv.appendChild(articleContent);
-          hobbiesArticlesDiv.appendChild(document.createElement("br"));
-          hobbiesArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
     })
@@ -300,20 +330,26 @@ function populateStudent() {
 
       if (data && data.articles && Array.isArray(data.articles)) {
         for (let i = 0; i < data.articles.length; i++) {
-          const article = data.articles[i];
-          // Create HTML elements for each article
-          const articleTitle = document.createElement("h3");
-          articleTitle.textContent = article.title;
-          const articleContent = document.createElement("p");
-          articleContent.textContent = article.body;
+    const article = data.articles[i];
+    // Create HTML elements for each article
+    const articleTitle = document.createElement("h3");
+    articleTitle.textContent = article.title;
+    // Extract the date part from the timestamp
+    const date = new Date(article.created_at);
+    const formattedDate = date.toISOString().split('T')[0];
+    // Create a new element for the formatted date
+    const articleDate = document.createElement("p");
+    articleDate.textContent = "Created on: " + formattedDate;
+    const articleContent = document.createElement("p");
+    articleContent.textContent = article.body;
 
-          // Append the elements to miscArticles div
-          studentArticlesDiv.appendChild(articleTitle);
-          studentArticlesDiv.appendChild(articleContent);
-          studentArticlesDiv.appendChild(document.createElement("br"));
-          studentArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
-        }
-      } else {
+    // Append the elements to academicArticles div
+    academicArticlesDiv.appendChild(articleTitle);
+    academicArticlesDiv.appendChild(articleDate); // Append the formatted date
+    academicArticlesDiv.appendChild(articleContent);
+    academicArticlesDiv.appendChild(document.createElement("br"));
+    academicArticlesDiv.appendChild(document.createElement("br")); //adds 2 line spaces between each article
+}      } else {
         console.error("No articles found in the response or invalid data structure.");
       }
     })
