@@ -30,6 +30,9 @@ if (isset($_GET['delete-article'])) {
     $article_id = $_GET['delete-article'];
     deleteArticle($article_id);
 }
+if (isset($_GET['id'])) {
+    $article_id = $_GET['id'];
+}
 
 function getUserArticles()
 {
