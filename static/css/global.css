@@ -99,7 +99,7 @@ button:hover {
   margin: 32px;
   height: calc(80vh - 70px - 64px);
   color: black;
-  background-image: url("../images/hero.avif");
+  background-image: url("../images/homepage.png");
   background-size: 100% 100%;
 }
 
